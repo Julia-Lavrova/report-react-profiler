@@ -60,6 +60,43 @@
         </figure>
     </section>
 
+    <section class="slide">
+        <pre>
+            <code>state =  {</code>
+            <code>    loading: false,</code>
+            <code>    ...</code>
+            <code>}</code>
+
+            <code>componentDidMount() {</code>
+            <code>    this.loadHistory()</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <pre>
+            <code>loadHistory = async () => {</code>
+            <code>    this.setState({ loading: true })</code>
+            <code>    ...</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <pre>
+            <code>if (newHistory.length === 0) {</code>
+            <code>    <mark>this.setState({ historyPageNumber: -1 });</mark></code>
+            <code>} else {</code>
+            <code>    <mark>this.setState(prevState => ({</mark></code>
+            <code>        historyPageNumber: prevState.historyPageNumber + 1,</code>
+            <code>        history: prevState.history.concat(this.getFormattedHistory(newHistory)),</code>
+            <code>    }));</code>
+            <code>}</code>
+
+            <code><mark>this.setState({ loading: false });</mark></code>
+        </pre>
+    </section>
+
     <footer class="badge">
         <a href="https://github.com/shower/shower">Fork me on GitHub</a>
     </footer>
